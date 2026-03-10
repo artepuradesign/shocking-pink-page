@@ -40,7 +40,7 @@ const ExtratoExport = () => {
   const fmtDoc = (doc: string) => {
     if (!doc) return "";
     const d = doc.replace(/\D/g, "");
-    if (d.length === 11) return d.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+    if (d.length === 11) return `•••.${d.slice(3, 6)}.${d.slice(6, 9)}-••`;
     if (d.length === 14) return d.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-$5");
     return doc;
   };
