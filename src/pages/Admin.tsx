@@ -718,12 +718,21 @@ function GeradorExtrato({ selectedConta, usuarios, onGenerated }: {
             </div>
             <div>
               <Label>Categoria</Label>
-              <Select value={categoria} onValueChange={setCategoria}>
+              <Select value={categoria} onValueChange={v => {
+                setCategoria(v);
+                const autoSaida = v === "DEBITO" || v === "CREDITO";
+                if (autoSaida) {
+                  setTipo("saida");
+                  setDescricao(v === "DEBITO" ? "Compra no débito" : "Compra no crédito");
+                }
+              }}>
                 <SelectTrigger><SelectValue /></SelectTrigger>
                 <SelectContent>
                   <SelectItem value="PIX">PIX</SelectItem>
                   <SelectItem value="TED">TED</SelectItem>
                   <SelectItem value="BOLETO">Boleto</SelectItem>
+                  <SelectItem value="DEBITO">Débito</SelectItem>
+                  <SelectItem value="CREDITO">Crédito</SelectItem>
                   <SelectItem value="ESTORNO">Estorno</SelectItem>
                   <SelectItem value="RENDIMENTO">Rendimento</SelectItem>
                 </SelectContent>
