@@ -100,7 +100,7 @@ const ExtratoExport = () => {
           <p>{conta.numero_conta}</p>
         </div>
       </div>
-      <div style={{ borderBottom: "2px solid #ccc", paddingBottom: "6px" }}>
+      <div style={{ borderBottom: "2px solid #ccc", paddingBottom: "6px", marginBottom: "16px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
           <span style={{ fontWeight: 700, fontSize: "13px" }}>
             {fmtPeriodo(dataInicio)} a {fmtPeriodo(dataFim)}
