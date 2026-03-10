@@ -123,7 +123,7 @@ CREATE TABLE transacoes (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     conta_id INT NOT NULL,
     tipo ENUM('entrada', 'saida') NOT NULL,
-    categoria ENUM('PIX', 'TED', 'DOC', 'BOLETO', 'ESTORNO', 'RENDIMENTO', 'TARIFA', 'DEPOSITO', 'SAQUE', 'OUTROS') NOT NULL,
+    categoria ENUM('PIX', 'TED', 'DOC', 'BOLETO', 'ESTORNO', 'RENDIMENTO', 'TARIFA', 'DEPOSITO', 'SAQUE', 'DEBITO', 'CREDITO', 'OUTROS') NOT NULL,
     descricao VARCHAR(255) NOT NULL,
     valor DECIMAL(15,2) NOT NULL,
     saldo_anterior DECIMAL(15,2) NOT NULL,
