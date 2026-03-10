@@ -100,7 +100,7 @@ const ExtratoExport = () => {
           <p>{conta.numero_conta}</p>
         </div>
       </div>
-      <div style={{ borderBottom: "2px solid #ccc", paddingBottom: "6px" }}>
+      <div style={{ borderBottom: "2px solid #ccc", paddingBottom: "6px", marginBottom: "16px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
           <span style={{ fontWeight: 700, fontSize: "13px" }}>
             {fmtPeriodo(dataInicio)} a {fmtPeriodo(dataFim)}
@@ -169,7 +169,7 @@ const ExtratoExport = () => {
                       <td style={{ padding: "6px 16px 6px 0" }}></td>
                       <td style={{ padding: "6px 0", verticalAlign: "top", width: "200px" }}>{t.descricao}</td>
                       <td style={{ padding: "6px 8px", verticalAlign: "top", color: "#555", fontSize: "11.5px", lineHeight: "2" }}>
-                        {t.beneficiario_nome} - {t.beneficiario_documento} - {t.beneficiario_banco}{t.beneficiario_banco_codigo ? ` (${t.beneficiario_banco_codigo})` : ""} Agência: {t.beneficiario_agencia} Conta: {t.beneficiario_conta}
+                        {[t.beneficiario_nome, t.beneficiario_documento, t.beneficiario_banco ? `${t.beneficiario_banco}${t.beneficiario_banco_codigo ? ` (${t.beneficiario_banco_codigo})` : ""}` : null].filter(Boolean).join(" - ")}{t.beneficiario_agencia ? ` Agência: ${t.beneficiario_agencia}` : ""}{t.beneficiario_conta ? ` Conta: ${t.beneficiario_conta}` : ""}
                       </td>
                       <td style={{ textAlign: "right", padding: "6px 0 6px 24px", verticalAlign: "top", whiteSpace: "nowrap" }}>{fmt(parseFloat(t.valor))}</td>
                     </tr>
@@ -189,7 +189,7 @@ const ExtratoExport = () => {
                       <td style={{ padding: "6px 16px 6px 0" }}></td>
                       <td style={{ padding: "6px 0", verticalAlign: "top", width: "200px" }}>{t.descricao}</td>
                       <td style={{ padding: "6px 8px", verticalAlign: "top", color: "#555", fontSize: "11.5px", lineHeight: "2" }}>
-                        {t.beneficiario_nome} - {t.beneficiario_documento} - {t.beneficiario_banco}{t.beneficiario_banco_codigo ? ` (${t.beneficiario_banco_codigo})` : ""} Agência: {t.beneficiario_agencia} Conta: {t.beneficiario_conta}
+                        {[t.beneficiario_nome, t.beneficiario_documento, t.beneficiario_banco ? `${t.beneficiario_banco}${t.beneficiario_banco_codigo ? ` (${t.beneficiario_banco_codigo})` : ""}` : null].filter(Boolean).join(" - ")}{t.beneficiario_agencia ? ` Agência: ${t.beneficiario_agencia}` : ""}{t.beneficiario_conta ? ` Conta: ${t.beneficiario_conta}` : ""}
                       </td>
                       <td style={{ textAlign: "right", padding: "6px 0 6px 24px", verticalAlign: "top", whiteSpace: "nowrap" }}>{fmt(parseFloat(t.valor))}</td>
                     </tr>
