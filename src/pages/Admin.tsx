@@ -274,12 +274,21 @@ const Admin = () => {
                     </div>
                     <div>
                       <Label>Categoria</Label>
-                      <Select value={novaTransacao.categoria} onValueChange={v => setNovaTransacao(p => ({ ...p, categoria: v }))}>
+                      <Select value={novaTransacao.categoria} onValueChange={v => {
+                        const autoSaida = v === "DEBITO" || v === "CREDITO";
+                        setNovaTransacao(p => ({
+                          ...p,
+                          categoria: v,
+                          ...(autoSaida ? { tipo: "saida" as const, descricao: v === "DEBITO" ? "Compra no débito" : "Compra no crédito" } : {}),
+                        }));
+                      }}>
                         <SelectTrigger><SelectValue /></SelectTrigger>
                         <SelectContent>
                           <SelectItem value="PIX">PIX</SelectItem>
                           <SelectItem value="TED">TED</SelectItem>
                           <SelectItem value="BOLETO">Boleto</SelectItem>
+                          <SelectItem value="DEBITO">Débito</SelectItem>
+                          <SelectItem value="CREDITO">Crédito</SelectItem>
                           <SelectItem value="ESTORNO">Estorno</SelectItem>
                           <SelectItem value="RENDIMENTO">Rendimento</SelectItem>
                         </SelectContent>
